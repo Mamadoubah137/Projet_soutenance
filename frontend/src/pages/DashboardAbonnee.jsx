@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { FileText, MessageCircle, Bell, Search, PersonStanding, SubscriptIcon, HistoryIcon } from "lucide-react";
+import axios from "axios";
+import Logout from "../components/logout";
+import MesFactures from "../components/MesFactures";
+import AjouterAbonnementModal from "../components/AjouterAbonnementModal";
 
-
+axios.defaults.withCredentials = true;
 export default function DashboardAbonne() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [active, setActive] = useState("factures");
 
   const menuItems = [
@@ -25,7 +30,7 @@ export default function DashboardAbonne() {
               alt="User"
               className="w-20 h-20 rounded-full border-2 border-white"
             />
-            <h2 className="mt-3 text-lg font-semibold">Bonjour, Karim</h2>
+            <h2 className="mt-3 text-lg font-semibold">Bonjour</h2>
           </div>
 
           {/* Menu */}
@@ -46,7 +51,7 @@ export default function DashboardAbonne() {
         </div>
 
         {/* Déconnexion */}
-       
+       <Logout />
       </aside>
 
       {/* Main content */}
@@ -55,13 +60,18 @@ export default function DashboardAbonne() {
         <div className="flex justify-end items-center space-x-6 mb-6">
           <Search className="w-6 h-6 text-gray-600 cursor-pointer" />
           <Bell className="w-6 h-6 text-gray-600 cursor-pointer" />
-          <button className="flex items-center px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-500">Ajouter un Abonnement</button>
+          <button
+        onClick={() => setIsModalOpen(true)}
+        className="flex items-center px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white"
+      >
+        Ajouter un abonnement
+      </button>
         </div>
 
         {/* Contenu dynamique */}
         <div className="bg-white p-6 rounded-2xl shadow-lg">
           {active === "factures" && (
-            <h2 className="text-xl font-semibold">Nouvelles Factures</h2>
+            <MesFactures />
           )}
           {active === "historique" && (
             <h2 className="text-xl font-semibold">Historique des factures</h2>
@@ -77,6 +87,10 @@ export default function DashboardAbonne() {
           )}
         </div>
       </main>
+      <AjouterAbonnementModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

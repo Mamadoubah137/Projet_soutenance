@@ -3,13 +3,13 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero({
   title = "Gérez vos factures en toute simplicité",
-  subtitle = "BALLALbills",
+  subtitle = "BALLALfactures",
   description =
     "Centralisez eau, électricité, loyer… et payez en un clic. Suivi en temps réel, alertes intelligentes, historique détaillé.",
   ctaPrimary = { label: "Découvrir" },
   ctaSecondary = { label: "Connexion" },
   imageSrc = "/images/hero2.png", // ← Ton image par défaut
-  imageAlt = "Aperçu de l'application BALLALbills",
+  imageAlt = "Aperçu de l'application BALLALfactures",
 }) {
   return (
     <section className="relative overflow-hidden">
@@ -65,7 +65,7 @@ export default function Hero({
 
             <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               <span className="block text-zinc-900 dark:text-zinc-50">{title}</span>
-              <span className="mt-2 block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              <span className="mt-2 block bg-blue-400 bg-clip-text text-transparent">
                 {subtitle}
               </span>
             </h1>

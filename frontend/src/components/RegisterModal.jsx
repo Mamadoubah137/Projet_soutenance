@@ -98,7 +98,7 @@ const handleSubmit = async (e) => {
           ✖
         </button>
 
-        <h2 className="text-2xl font-bold text-center mb-4">Inscription</h2>
+        <h2 className="text-2xl font-bold  text-center mb-4">Inscription</h2>
 
         {/* Message visible */}
         {message && (
@@ -186,7 +186,7 @@ const handleSubmit = async (e) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition"
+            className="w-full bg-blue-600 hover:bg-green-700 text-white py-2 rounded-lg transition"
           >
             {loading ? "Inscription..." : "S'inscrire"}
           </button>

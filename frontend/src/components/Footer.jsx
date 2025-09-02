@@ -11,7 +11,7 @@ const Footer = () => {
         <div>
           <div className="flex items-center space-x-2 mb-4">
             <img src="/logo.png" alt="Logo" className="w-10 h-10" />
-            <span className="text-xl font-bold">BALLALbills</span>
+            <span className="text-xl font-bold">BALLALfactures</span>
           </div>
           <p className="text-white-400 text-sm">
             Gérer vos factures et loyers facilement depuis une seule plateforme.
@@ -72,7 +72,7 @@ const Footer = () => {
 
       {/* Bas de page */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-black-400 text-sm">
-        © {new Date().getFullYear()} BALLALbills. Tous droits réservés.
+        © {new Date().getFullYear()} BALLALfactures. Tous droits réservés.
       </div>
     </footer>
   );

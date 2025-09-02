@@ -34,10 +34,10 @@ export const registerUser = async (req, res) => {
 // =====================
 // CONNEXION
 // =====================
+
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "Utilisateur introuvable" });
 
@@ -46,12 +46,33 @@ export const loginUser = async (req, res) => {
 
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      "secretKey",
+      process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
-    res.json({ token, role: user.role });
+    res.cookie("token", token, { httpOnly: true, sameSite: "strict" });
+
+    // Renvoi de l'utilisateur complet, avec le vrai _id
+    res.json({
+      message: "Connexion réussie",
+      user: {
+        _id: user._id,
+        nom: user.nom,
+        prenom: user.prenom,
+        email: user.email,
+        role: user.role
+      }
+    });
   } catch (err) {
     res.status(500).json({ message: "Erreur serveur", error: err.message });
   }
+};
+
+
+// =====================
+// DÉCONNEXION
+// =====================
+export const logoutUser = async (req, res) => {
+  res.clearCookie("token");
+  res.json({ message: "Déconnexion réussie" });
 };
