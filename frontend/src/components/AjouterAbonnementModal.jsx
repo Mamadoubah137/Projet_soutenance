@@ -1,13 +1,12 @@
 import { useState } from "react";
-import axios from "axios";
+import { ajouterLocataire } from "../services/api"; // Mettez à jour l'import
 
 export default function AjouterAbonnementModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
-    locataireNom: "",
-    locataireEmail: "",
-    locataireTel: "",
-    numeroImmeuble: "",
+    nomComplet: "",
+    numeroPropriete: "",
     numeroAppartement: "",
+    email: "", // Ce champ est utilisé pour la validation et le lien avec le user
   });
 
   if (!isOpen) return null;
@@ -19,11 +18,11 @@ export default function AjouterAbonnementModal({ isOpen, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/abonnements", formData);
-      alert(`✅ Abonnement créé pour ${res.data.abonnement.locataireNom}`);
+      const res = await ajouterLocataire(formData);
+      alert(`✅ Abonnement créé pour ${res.data.nomComplet}`);
       onClose();
     } catch (error) {
-      alert("❌ Erreur : " + (error.response?.data?.error || error.message));
+      alert("❌ Erreur : " + (error.response?.data?.message || error.message));
     }
   };
 
@@ -42,7 +41,7 @@ export default function AjouterAbonnementModal({ isOpen, onClose }) {
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            name="locataireNom"
+            name="nomComplet"
             placeholder="Nom complet"
             onChange={handleChange}
             className="w-full border p-2 rounded"
@@ -50,24 +49,16 @@ export default function AjouterAbonnementModal({ isOpen, onClose }) {
           />
           <input
             type="email"
-            name="locataireEmail"
-            placeholder="Email"
-            onChange={handleChange}
-            className="w-full border p-2 rounded"
-            required
-          />
-          <input
-            type="tel"
-            name="locataireTel"
-            placeholder="Numéro de téléphone"
+            name="email"
+            placeholder="Email (doit correspondre à votre compte)"
             onChange={handleChange}
             className="w-full border p-2 rounded"
             required
           />
           <input
             type="text"
-            name="numeroImmeuble"
-            placeholder="Numéro Immeuble"
+            name="numeroPropriete"
+            placeholder="Numéro de Propriété"
             onChange={handleChange}
             className="w-full border p-2 rounded"
             required
@@ -75,7 +66,7 @@ export default function AjouterAbonnementModal({ isOpen, onClose }) {
           <input
             type="text"
             name="numeroAppartement"
-            placeholder="Numéro Appartement"
+            placeholder="Numéro d'Appartement"
             onChange={handleChange}
             className="w-full border p-2 rounded"
             required

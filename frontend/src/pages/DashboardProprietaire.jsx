@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Home, FileText, CreditCard, MessageCircle, Building, Bell, Search } from "lucide-react";
 import Logout from "../components/logout";
 import AjouterImmeubleModal from "../components/AjouterImmeubleModal";
+import MesBiensPage from "./MesBiensPage";
 
 export default function DashboardProprietaire() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,7 +73,7 @@ export default function DashboardProprietaire() {
             <h2 className="text-xl font-semibold">Vue d’ensemble (Graphiques & Statistiques)</h2>
           )}
           {active === "biens" && (
-            <h2 className="text-xl font-semibold">Gestion des biens immobiliers</h2>
+            <MesBiensPage />
           )}
           {active === "factures" && (
             <h2 className="text-xl font-semibold">Factures générées pour les abonnés</h2>

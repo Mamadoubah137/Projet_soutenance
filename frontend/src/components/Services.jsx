@@ -35,7 +35,7 @@ export default function Services() {
   const offsets = [smooth1, smooth2, smooth3];
 
   return (
-    <section className="relative -mt-24 z-10 bg-gray-50">
+    <section className="relative -mt-24 pt-15 z-10 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}

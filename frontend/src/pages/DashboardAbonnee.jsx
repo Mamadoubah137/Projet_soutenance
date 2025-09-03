@@ -11,10 +11,10 @@ export default function DashboardAbonne() {
   const [active, setActive] = useState("factures");
 
   const menuItems = [
-    { id: "factures", label: "Factures", icon: FileText },
+    { id: "abonnement", label: "Mon Loyer", icon: SubscriptIcon },
     { id: "historique", label: "Historique De Paiement", icon: HistoryIcon},
     { id: "reclamations", label: "Réclamations", icon: MessageCircle },
-    { id: "abonnement", label: "Abonnement", icon: SubscriptIcon },
+    { id: "factures", label: "Factures", icon: FileText },
     { id: "profil", label: "Profil", icon: PersonStanding },
   ];
 
@@ -69,9 +69,8 @@ export default function DashboardAbonne() {
         </div>
 
         {/* Contenu dynamique */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg">
-          {active === "factures" && (
-            <MesFactures />
+        {active === "abonnement" && (
+            <h2 className="text-xl font-semibold">Les abonnement deja ajouter</h2>
           )}
           {active === "historique" && (
             <h2 className="text-xl font-semibold">Historique des factures</h2>
@@ -79,9 +78,11 @@ export default function DashboardAbonne() {
           {active === "reclamations" && (
             <h2 className="text-xl font-semibold">Faire une réclamation</h2>
           )}
-          {active === "abonnement" && (
-            <h2 className="text-xl font-semibold">Les abonnement deja ajouter</h2>
+          <div className="bg-white p-6 rounded-2xl shadow-lg">
+          {active === "factures" && (
+            <MesFactures />
           )}
+          
           {active === "profil" && (
             <h2 className="text-xl font-semibold">Le profil de l'utilisateur</h2>
           )}

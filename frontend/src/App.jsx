@@ -5,6 +5,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import DashboardAbonnee from './pages/DashboardAbonnee';
 import DashboardProprietaire from './pages/DashboardProprietaire';
+
 export default function App() {
   return (
     <Routes>
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/dashboard-abonne" element={<DashboardAbonnee />} />
       <Route path="/dashboard-proprietaire" element={<DashboardProprietaire />} />
+      
       {/* Add more routes as needed */}
 
     </Routes>

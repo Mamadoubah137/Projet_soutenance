@@ -21,44 +21,7 @@ export default function RegisterModal({ onClose, onSwitchToLogin }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  {/*// Soumission du formulaire
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage("");
 
-    try {
-      // Étape 1 : INSCRIPTION
-      await axios.post("http://localhost:5000/api/auth/register", formData);
-
-      // Étape 2 : CONNEXION AUTOMATIQUE après inscription réussie
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
-      email: formData.email,
-      password: formData.password,
-      });
-
-      // Stockage du token et rôle
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("role", res.data.role);
-
-      // Message visible
-      setMessage("✅ Inscription Réussie.");
-
-      // Étape 3 : Redirection selon rôle
-      setTimeout(() => {
-        if (res.data.role === "abonne") {
-        navigate("/dashboard-abonne", { replace: true });
-       } else {
-        navigate("/dashboard-proprietaire", { replace: true });
-    }
-      }, 1500);
-
-    } catch (err) {
-      setMessage("❌ " + (err.response?.data?.message || "Erreur lors de l'inscription"));
-    } finally {
-      setLoading(false);
-    }
-  };*/}
 
   // Soumission du formulaire
 const handleSubmit = async (e) => {
@@ -186,7 +149,7 @@ const handleSubmit = async (e) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-green-700 text-white py-2 rounded-lg transition"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition"
           >
             {loading ? "Inscription..." : "S'inscrire"}
           </button>

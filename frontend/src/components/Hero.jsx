@@ -6,8 +6,7 @@ export default function Hero({
   subtitle = "BALLALfactures",
   description =
     "Centralisez eau, électricité, loyer… et payez en un clic. Suivi en temps réel, alertes intelligentes, historique détaillé.",
-  ctaPrimary = { label: "Découvrir" },
-  ctaSecondary = { label: "Connexion" },
+  
   imageSrc = "/images/hero2.png", // ← Ton image par défaut
   imageAlt = "Aperçu de l'application BALLALfactures",
 }) {
@@ -75,20 +74,6 @@ export default function Hero({
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button
-                onClick={ctaPrimary.onClick}
-                className="group flex items-center rounded-2xl bg-primary px-6 py-3 text-base font-medium text-white shadow-lg transition hover:bg-primary/90"
-              >
-                {ctaPrimary.label}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-              </button>
-
-              <button
-                onClick={ctaSecondary.onClick}
-                className="rounded-2xl border border-zinc-300 px-6 py-3 text-base font-medium text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-800"
-              >
-                {ctaSecondary.label}
-              </button>
             </div>
           </motion.div>
         </div>
