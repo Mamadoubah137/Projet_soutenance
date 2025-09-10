@@ -1,5 +1,5 @@
 import express from "express";
-import { createTenant, getMyTenantInfo } from "../controllers/tenantController.js";
+import { createTenant, getMyTenantInfo, removeTenantSubscription, getTenantRentInfo } from "../controllers/tenantController.js";
 import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
@@ -8,5 +8,9 @@ const router = express.Router();
 router.post("/register", protect, createTenant);
 // Route pour obtenir les informations du locataire
 router.get("/my-info", protect, getMyTenantInfo);
+// Route pour libérer un appartement
+router.delete("/remove", protect, removeTenantSubscription);
+// Nouvelle route pour les informations de loyer
+router.get("/my-rent", protect, getTenantRentInfo);
 
 export default router;

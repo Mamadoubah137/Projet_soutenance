@@ -7,7 +7,7 @@ export default function Hero({
   description =
     "Centralisez eau, électricité, loyer… et payez en un clic. Suivi en temps réel, alertes intelligentes, historique détaillé.",
   
-  imageSrc = "/images/hero2.png", // ← Ton image par défaut
+  imageSrc = "/images/hero2.png", 
   imageAlt = "Aperçu de l'application BALLALfactures",
 }) {
   return (
@@ -46,7 +46,7 @@ export default function Hero({
                 transition={{ delay: 0.4, type: "spring", stiffness: 120, damping: 16 }}
                 className="absolute -right-4 -top-4 hidden select-none rounded-2xl bg-white/80 px-3 py-2 text-sm shadow-lg ring-1 ring-black/5 backdrop-blur md:block"
               >
-                <span className="font-semibold">Nouvelles fonctionnalités</span>
+                <span className="font-semibold">Bienvenue</span>
               </motion.div>
             </div>
           </motion.div>

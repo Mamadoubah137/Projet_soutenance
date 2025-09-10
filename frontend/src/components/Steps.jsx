@@ -62,7 +62,7 @@ export default function HowItWorks() {
           {renderSteps(stepsAbonne, "blue")}
           <div className="mt-6 text-center md:text-left">
             <button
-              onClick={() => alert("Redirection vers la page à propos")}
+              onClick={() =>  navigate("/services")}
               className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"
             >
               Voir plus
@@ -78,7 +78,7 @@ export default function HowItWorks() {
           {renderSteps(stepsProprietaire, "green")}
           <div className="mt-6 text-center md:text-left">
             <button
-              onClick={() => alert("Redirection vers la page à propos")}
+              onClick={() =>  navigate("/services")}
               className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition"
             >
               Voir plus

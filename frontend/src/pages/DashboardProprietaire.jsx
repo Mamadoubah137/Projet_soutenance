@@ -3,6 +3,8 @@ import { Home, FileText, CreditCard, MessageCircle, Building, Bell, Search } fro
 import Logout from "../components/logout";
 import AjouterImmeubleModal from "../components/AjouterImmeubleModal";
 import MesBiensPage from "./MesBiensPage";
+import GenererFactureModal from "../components/GenererFactureModal";
+import MesFactures from "../components/MesFactures";
 
 export default function DashboardProprietaire() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,7 +31,7 @@ export default function DashboardProprietaire() {
         <div>
           <div className="flex flex-col items-center mb-8">
             <img
-              src="https://via.placeholder.com/80"
+              src="/images/maphoto.jpg"
               alt="User"
               className="w-20 h-20 rounded-full border-2 border-white"
             />
@@ -76,7 +78,7 @@ export default function DashboardProprietaire() {
             <MesBiensPage />
           )}
           {active === "factures" && (
-            <h2 className="text-xl font-semibold">Factures générées pour les abonnés</h2>
+          <MesFactures/>
           )}
           {active === "paiements" && (
             <h2 className="text-xl font-semibold">Suivi des paiements des abonnés</h2>

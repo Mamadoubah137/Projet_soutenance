@@ -62,18 +62,23 @@ export const getMyProperties = async (req, res) => {
       properties.map(async (property) => {
         const tenants = await Tenant.find({ numeroPropriete: property.numeroPropriete }).populate({
           path: "locataire", // "locataire" est le champ dans le modèle Tenant
-          model: User,       // Le modèle à utiliser est User
-          select: "nom prenom telephone" // Champs à récupérer de l'utilisateur
+          model: User, // Le modèle à utiliser est User
+          select: "nom prenom telephone", // Champs à récupérer de l'utilisateur
         });
+
+        // 🐛 CORRECTION : Filtrer pour ne garder que les locataires qui ont un utilisateur associé
+        const validTenants = tenants.filter(tenant => tenant.locataire);
         
         // Formater les données pour les envoyer au frontend
         return {
           ...property.toObject(),
-          nombreAppartementsOccupes: tenants.length,
-          locataires: tenants.map(tenant => ({
-            nom: `${tenant.locataire.nom} ${tenant.locataire.prenom}`,
+          nombreAppartementsOccupes: validTenants.length, // Utilisez le tableau filtré
+          locataires: validTenants.map((tenant) => ({
+            _id: tenant.locataire._id,
+            nom: tenant.locataire.prenom + ' ' + tenant.locataire.nom,
             telephone: tenant.locataire.telephone,
-            numeroAppartement: tenant.numeroAppartement
+            numeroAppartement: tenant.numeroAppartement,
+            facture: "Générer",
           })),
         };
       })

@@ -17,7 +17,6 @@ const propertySchema = new mongoose.Schema({
   numeroPropriete: { type: String, unique: true },
   appartements: [
     {
-      // La contrainte unique a bien été retirée ici
       numeroAppartement: { type: String },
     },
   ],

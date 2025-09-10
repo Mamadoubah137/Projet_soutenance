@@ -24,7 +24,7 @@ const Header = () => {
           {/* Logo */}
           <div className="mb-4 md:mb-0 transition-transform hover:scale-105">
             <img
-              src="/hero.png"
+              src="/images/monlogo.png"
               alt="Logo"
               className="h-12 md:h-14 w-auto"
             />
@@ -32,7 +32,7 @@ const Header = () => {
 
           {/* Coordonnées */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-sm">
-            <ContactItem icon={<FaEnvelope />} text="contact@entreprise.com" />
+            <ContactItem icon={<FaEnvelope />} text="ballalfactures@entreprise.com" />
             <ContactItem icon={<FaPhone />} text="+224 638899482" />
             <ContactItem icon={<FaMapMarkerAlt />} text="Conakry-Ratoma, Koloma" />
           </div>
@@ -46,10 +46,10 @@ const Header = () => {
             <div className="flex flex-col md:flex-row justify-between items-center bg-white rounded-lg p-3">
               <nav className="w-full md:w-auto mb-3 md:mb-0">
                 <ul className="flex flex-wrap justify-center gap-1 md:gap-6">
-                  <NavItem to="/" icon={<FaHome />} text="Accueil" />
-                  <NavItem to="/a-propos" icon={<FaInfoCircle />} text="À propos" />
-                  <NavItem to="/services" icon={<FaServicestack />} text="Services" />
-                  <NavItem to="/contact" icon={<FaMailBulk />} text="Nous Contacter" />
+                  <NavItem to="/" text="Accueil" />
+                  <NavItem to="/a-propos" text="À propos" />
+                  <NavItem to="/services" text="Services" />
+                  <NavItem to="/contact" text="Nous Contacter" />
                 </ul>
               </nav>
 
